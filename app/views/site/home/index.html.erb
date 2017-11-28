@@ -1,13 +1,23 @@
 <body>
+<!-- Header -->
+<header class="masthead">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">Welcome To Our Studio!</div>
+            <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+        </div>
+    </div>
+</header>
 <!-- Page Content -->
 <div class="container">
   <div class="row">
     <div class="col-lg-3">
-     <h1 class="my-4">Shop Name</h1>
+     <h1 class="my-4">Categorias</h1>
       <div class="list-group">
-        <a href="#" class="list-group-item">Category 1</a>
-        <a href="#" class="list-group-item">Category 2</a>
-        <a href="#" class="list-group-item">Category 3</a>
+        <% @categories.each do |category| %>
+          <a href="#" class="list-group-item"><%= category.description %></a>
+        <% end %>  
       </div>
     </div>
   <!-- /.col-lg-3 -->
