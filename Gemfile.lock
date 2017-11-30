@@ -145,6 +145,7 @@ GEM
     nokogiri (1.8.1-x86-mingw32)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    popper_js (1.12.5)
     public_suffix (3.0.1)
     puma (3.11.0)
     puma (3.11.0-java)
@@ -275,6 +276,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  popper_js (~> 1.11)
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails-assets-bootstrap (= 4.0.0.beta)!

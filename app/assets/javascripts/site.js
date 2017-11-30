@@ -1,1 +1,2 @@
+//= require popper
 //= require bootstrap

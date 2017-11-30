@@ -10,9 +10,9 @@
 
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'site/site', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'site/site.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'site/site', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'site/site.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'site', 'data-turbolinks-track': 'reload' %>
     
@@ -20,7 +20,6 @@
   <body>
     <%= render partial: "layouts/site_shared/navigation" %>
     <%= yield %>
-    <%= render partial: "layouts/site_shared/about" %>
     <%= render partial: "layouts/site_shared/contact" %>
     <%= render partial: "layouts/site_shared/footer" %>
   </body>

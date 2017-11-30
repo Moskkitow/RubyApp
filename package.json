@@ -1,5 +1,8 @@
 {
   "name": "RubyApp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "popper.js": "^1.12.9",
+    "tooltip.js": "^1.1.7"
+  }
 }
