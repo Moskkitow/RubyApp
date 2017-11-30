@@ -40,7 +40,7 @@ body {
 
 .navbar-top-links li a {
   padding: 15px;
-  min-height: 50px;
+  min-height: .5px;
 }
 
 .navbar-top-links .dropdown-menu li {
@@ -103,7 +103,7 @@ body {
   padding-left: 52px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .sidebar {
     z-index: 1;
     position: absolute;
@@ -111,4 +111,15 @@ body {
     margin-top: .5px;
   }
 }
-  
+
+.btn-warning {
+  color: #fff;
+  background-color: darkred;
+  border-color: darkred;
+}
+
+.btn-info {
+  color: #fff;
+  background-color: darkblue;
+  border-color: darkblue;
+}
