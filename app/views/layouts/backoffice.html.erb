@@ -22,8 +22,21 @@
   <body>
     <div id="wrapper">
         <%= render partial: "layouts/backoffice_shared/header" %>  
-        <%= render partial: "layouts/backoffice_shared/sidebar" %>  
-        <%= yield %>
-    </div>    
+        <%= render partial: "layouts/backoffice_shared/sidebar" %>
+        <div id="page-wrapper">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-12">
+                    <%= yield %>
+                  </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <% if notice %>
+      <script>
+        $.notify("<%= notice %>", "success")    
+      </script>
+    <% end %>    
   </body>
 </html>

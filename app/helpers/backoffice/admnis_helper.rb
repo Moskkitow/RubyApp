@@ -1,0 +1,2 @@
+module Backoffice::AdmnisHelper
+end
