@@ -1,18 +1,18 @@
 class Backoffice::AdminsController < BackofficeController
   
-  before_action :set_admin, only: [:edit, :update, :destroy]
+  before_action :set_admin, only: [:edit, :update]
   
     def index
       @admins = Admin.all
     end
   
     def new
-      @admins = Admin.new
+      @admin = Admin.new
     end
   
     def create
-      @admin = Admins.new(params_admin)
-      if @admin.save 	
+      @admin = Admin.new(params_admin)
+      if @admin.save	
         redirect_to backoffice_admins_path, notice: "Administrador (#{@admin.email}) cadastrado com sucesso"
       else
         render :new
