@@ -18,11 +18,6 @@ gem 'foreman'
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 # Bootsrap SB Admin
 gem 'bootstrap_sb_admin_base_v2'
-# Bootsrap
-gem 'rails-assets-bootstrap', '4.0.0.beta', source: 'https://rails-assets.org'
-gem 'popper_js', '~> 1.11'
-# A simple, versatile notification library
-gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
@@ -35,6 +30,16 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+source 'https://rails-assets.org' do
+  # Bootsrap
+  gem 'rails-assets-bootstrap', '4.0.0.beta'
+  gem 'popper_js', '~> 1.11'
+  # A simple, versatile notification library
+  gem 'rails-assets-notifyjs'
+  # BootboxJs
+  gem 'rails-assets-bootbox'
+end
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -66,6 +71,8 @@ group :development, :test do
 end
 
 group :development do
+  # Gem FAKER
+  gem 'faker'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
