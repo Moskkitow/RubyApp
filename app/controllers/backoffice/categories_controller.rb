@@ -13,7 +13,7 @@ class Backoffice::CategoriesController < BackofficeController
   def create
     @category = CategoryService.create(params_category)
     unless @category.errors.any? 	
-      redirect_to backoffice_categories_path, notice: "Categoria (#{@category.description}) cadastrada com Sucesso"
+      redirect_to backoffice_categories_path, notice: I18n.t('messages.created_with', item: @category.description)
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Backoffice::CategoriesController < BackofficeController
 
   def update
     if @category.update(params_category)
-      redirect_to backoffice_categories_path, notice: "Categoria (#{@category.description}) cadastrada com Sucesso"
+      redirect_to backoffice_categories_path, notice: I18n.t('messages.updated_with', item: @category.description)
     else
       render :new
     end      

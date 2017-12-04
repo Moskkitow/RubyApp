@@ -115,6 +115,19 @@ body{
 .btn-default {
     font-style: italic;
     color: white;
-    background-color: darkgray;
+    background-color: white;
     border-color: black;
+}
+
+.label-success {
+  font-weight: bold;
+  color: white;
+  background-color: #5cb85c;
+  border-color: black;
+}
+
+.label-primary {
+  font-weight: bold;
+  color: white;
+  border-color: black;
 }

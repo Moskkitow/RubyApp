@@ -35300,3 +35300,1157 @@ Migrating to AddNameAndRoteToAdmin (20171202231145)
   [1m[36mAdmin Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE "admins"."email" = ? LIMIT ?[0m  [["email", "marcel@bins.name"], ["LIMIT", 1]]
   [1m[35mSQL (3.7ms)[0m  [1m[32mINSERT INTO "admins" ("email", "encrypted_password", "created_at", "updated_at", "name", "role") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "marcel@bins.name"], ["encrypted_password", "$2a$11$0m99E14YMGD521hUakWReehSrk6wCc9VL3vdvkbfqaPeOpVYJMyzq"], ["created_at", "2017-12-03 00:45:51.980251"], ["updated_at", "2017-12-03 00:45:51.980251"], ["name", "Bruna Paiva"], ["role", 1]]
   [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2017-12-04 11:05:54 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (72.7ms)
+  Rendered layouts/site_shared/_navigation.html.erb (1.1ms)
+  Rendered layouts/site_shared/_contact.html.erb (1.3ms)
+  Rendered layouts/site_shared/_footer.html.erb (2.3ms)
+Completed 200 OK in 5704ms (Views: 5624.1ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 11:06:07 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 78ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 11:06:15 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (317.3ms)
+Completed 200 OK in 1573ms (Views: 1481.6ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 11:06:26 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kph8Cz6hbblPZPEoNEv6lJAzGNSP1fJ8EV/DgLoKzgxpJWQ5kH7PH3Pj4/dOGbJK/+qH3eUhd3EsgvD6+FD+pA==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 903ms (ActiveRecord: 6.6ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kph8Cz6hbblPZPEoNEv6lJAzGNSP1fJ8EV/DgLoKzgxpJWQ5kH7PH3Pj4/dOGbJK/+qH3eUhd3EsgvD6+FD+pA==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (9.1ms)
+Completed 200 OK in 1229ms (Views: 784.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 11:06:41 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b4VPW04pThOlwmR6fQ+IoSaEeHV5rRbUzLL6yMGbtMKUOFdp4PbstZlFdqUHXcB/SV3nfBNZk9nxb8myg8GEag==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (75.4ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-04 14:06:41.823159"], ["last_sign_in_at", "2017-12-04 14:06:41.823159"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2017-12-04 14:06:41.827473"], ["id", 1]]
+  [1m[35m (36.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 838ms (ActiveRecord: 113.5ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 11:06:42 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (1.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.2ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.6ms)
+Completed 200 OK in 728ms (Views: 697.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 11:06:46 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (12.2ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.9ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.3ms)
+Completed 200 OK in 846ms (Views: 828.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/backoffice/admins/new" for ::1 at 2017-12-04 11:07:08 -0300
+Processing by Backoffice::AdminsController#new as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/new.html.erb within layouts/backoffice
+  Rendered backoffice/admins/shared/_form.html.erb (5.9ms)
+  Rendered backoffice/admins/new.html.erb within layouts/backoffice (70.5ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.1ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.5ms)
+Completed 200 OK in 769ms (Views: 754.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 11:07:13 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (2.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (10.5ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.9ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.1ms)
+Completed 200 OK in 917ms (Views: 900.3ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/backoffice/admins/new" for ::1 at 2017-12-04 11:07:27 -0300
+Processing by Backoffice::AdminsController#new as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/new.html.erb within layouts/backoffice
+  Rendered backoffice/admins/shared/_form.html.erb (5.0ms)
+  Rendered backoffice/admins/new.html.erb within layouts/backoffice (16.5ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.2ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.6ms)
+Completed 200 OK in 709ms (Views: 693.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:05:02 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (6.3ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (34.6ms)
+Completed 500 Internal Server Error in 258ms (ActiveRecord: 6.5ms)
+
+
+
+SyntaxError - syntax error, unexpected '>'
+le_i18n == 'Super Usuário' &>
+                              ^
+/mnt/c/Users/marce/RubyApp/app/views/backoffice/admins/shared/_role_i18n.html.erb:4: syntax error, unexpected '<'
+            <%= admin.role_i18n 
+             ^
+/mnt/c/Users/marce/RubyApp/app/views/backoffice/admins/shared/_role_i18n.html.erb:13: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_30684680'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_30684680'
+
+Started POST "/__better_errors/7be75aa83459e7f7/variables" for ::1 at 2017-12-04 12:05:04 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:07:11 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (2360.5ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (2395.1ms)
+Completed 500 Internal Server Error in 2516ms (ActiveRecord: 7.2ms)
+
+
+
+NameError - undefined local variable or method `admin' for #<#<Class:0x0000000003abf4e8>:0x0000000003abd210>
+Did you mean?  @admins:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `_app_views_backoffice_admins_shared__role_i__n_html_erb__134688197315982614_25448840'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_30827900'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_30827900'
+
+Started POST "/__better_errors/9bd897c562f4125d/variables" for ::1 at 2017-12-04 12:07:16 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:07:41 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (2243.6ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (2261.8ms)
+Completed 500 Internal Server Error in 2434ms (ActiveRecord: 18.5ms)
+
+
+
+NameError - undefined local variable or method `admins' for #<#<Class:0x0000000003ff6fd8>:0x0000000003febe08>
+Did you mean?  @admins:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `_app_views_backoffice_admins_shared__role_i__n_html_erb__134688197315982614_33423640'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_33538460'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_33538460'
+
+Started POST "/__better_errors/ce5294da60e6ade4/variables" for ::1 at 2017-12-04 12:07:46 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:07:56 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (21.3ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (38.5ms)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 1.9ms)
+
+
+
+NoMethodError - undefined method `role_i18n' for nil:NilClass:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `_app_views_backoffice_admins_shared__role_i__n_html_erb__134688197315982614_31885660'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_31936100'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_31936100'
+
+Started POST "/__better_errors/49ce91d3fbd99572/variables" for ::1 at 2017-12-04 12:07:57 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:08:16 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (3.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (2176.8ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (2199.3ms)
+Completed 500 Internal Server Error in 2238ms (ActiveRecord: 4.0ms)
+
+
+
+NameError - undefined local variable or method `admin' for #<#<Class:0x0000000003ff6fd8>:0x0000000003ce5470>
+Did you mean?  @admins:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `_app_views_backoffice_admins_shared__role_i__n_html_erb__134688197315982614_31869380'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_31928300'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_31928300'
+
+Started POST "/__better_errors/c15310af36c0253e/variables" for ::1 at 2017-12-04 12:08:20 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:10:34 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (2681.9ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (2702.0ms)
+Completed 500 Internal Server Error in 2745ms (ActiveRecord: 2.7ms)
+
+
+
+NameError - undefined local variable or method `admin' for #<#<Class:0x0000000003ff6fd8>:0x00000000041fea10>
+Did you mean?  @admins:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `_app_views_backoffice_admins_shared__role_i__n_html_erb__134688197315982614_34425560'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_34601980'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_34601980'
+
+Started POST "/__better_errors/a3a33e9338d5b9b7/variables" for ::1 at 2017-12-04 12:10:39 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:11:19 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (2.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (2287.6ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (2314.8ms)
+Completed 500 Internal Server Error in 2469ms (ActiveRecord: 8.2ms)
+
+
+
+NameError - undefined local variable or method `admin' for #<#<Class:0x0000000003b9df18>:0x0000000003b9b510>
+Did you mean?  @admins:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `_app_views_backoffice_admins_shared__role_i__n_html_erb__134688197315982614_31170960'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_31258480'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_31258480'
+
+Started POST "/__better_errors/2176968fa9f88918/variables" for ::1 at 2017-12-04 12:11:24 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:14:18 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/shared/_role_i18n.html.erb (2412.9ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (2430.2ms)
+Completed 500 Internal Server Error in 2533ms (ActiveRecord: 7.0ms)
+
+
+
+NameError - undefined local variable or method `admin' for #<#<Class:0x0000000002435628>:0x0000000002417790>
+Did you mean?  @admins:
+  app/views/backoffice/admins/shared/_role_i18n.html.erb:2:in `_app_views_backoffice_admins_shared__role_i__n_html_erb__134688197315982614_18424300'
+  app/views/backoffice/admins/index.html.erb:27:in `block in _app_views_backoffice_admins_index_html_erb__3109814788860696535_18986200'
+  app/views/backoffice/admins/index.html.erb:22:in `_app_views_backoffice_admins_index_html_erb__3109814788860696535_18986200'
+
+Started POST "/__better_errors/c67ec256122beed0/variables" for ::1 at 2017-12-04 12:14:23 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:15:35 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (5144.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.9ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.2ms)
+Completed 200 OK in 11158ms (Views: 11139.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:16:33 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 184ms (ActiveRecord: 14.6ms)
+
+
+
+NoMethodError - undefined method `with_full_access' for #<Class:0x00007f3d71f1e428>
+Did you mean?  full_access:
+  app/controllers/backoffice/admins_controller.rb:6:in `index'
+
+Started POST "/__better_errors/8d8ac4767958f052/variables" for ::1 at 2017-12-04 12:16:34 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:17:05 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins" WHERE "admins"."role" = ?[0m  [["role", 0]]
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (6760.2ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.0ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.5ms)
+Completed 200 OK in 7710ms (Views: 7586.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:31:38 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (23.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.2ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.4ms)
+Completed 200 OK in 697ms (Views: 585.9ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:34:02 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (3.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (34.1ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.1ms)
+Completed 200 OK in 1111ms (Views: 1092.7ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:39:18 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (26.1ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (4.0ms)
+Completed 200 OK in 1302ms (Views: 1214.0ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:39:48 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (21.2ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.0ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.5ms)
+Completed 200 OK in 698ms (Views: 683.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:41:40 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (21.1ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.2ms)
+Completed 200 OK in 1166ms (Views: 1147.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:42:45 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (22.2ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.3ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.1ms)
+Completed 200 OK in 1085ms (Views: 1067.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:44:08 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (26.2ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.2ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.3ms)
+Completed 200 OK in 745ms (Views: 728.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 12:44:46 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (90.0ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.1ms)
+Completed 200 OK in 987ms (Views: 945.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 14:39:57 -0300
+Started GET "/" for ::1 at 2017-12-04 14:39:57 -0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Site::HomeController#index as HTML
+
+SyntaxError - syntax error, unexpected ':'
+message.destroyed_with'. item: @admin.name)
+                              ^
+/mnt/c/Users/marce/RubyApp/app/controllers/backoffice/admins_controller.rb:36: syntax error, unexpected ')', expecting keyword_end
+oyed_with'. item: @admin.name)
+                              ^:
+  app/controllers/backoffice/admins_controller.rb:36:in `'
+
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (76.5ms)
+Started POST "/__better_errors/90022b09e9a57c0e/variables" for ::1 at 2017-12-04 14:40:02 -0300
+  Rendered layouts/site_shared/_navigation.html.erb (1.0ms)
+  Rendered layouts/site_shared/_contact.html.erb (0.8ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.9ms)
+Completed 200 OK in 6933ms (Views: 6744.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 14:40:50 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (4579.6ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.1ms)
+Completed 200 OK in 5491ms (Views: 5377.5ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 15:49:34 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+
+NameError - Couldn't find Backoffice::AdminsHelper, expected it to be defined in helpers/backoffice/admins_helper.rb:
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/site/home_controller.rb:1:in `<top (required)>'
+
+Started POST "/__better_errors/a1554ae1dbf7d931/variables" for ::1 at 2017-12-04 15:49:35 -0300
+Started POST "/__better_errors/a1554ae1dbf7d931/variables" for ::1 at 2017-12-04 15:50:19 -0300
+Started GET "/" for ::1 at 2017-12-04 15:53:56 -0300
+Started GET "/" for ::1 at 2017-12-04 15:55:53 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (56.4ms)
+  Rendered layouts/site_shared/_navigation.html.erb (0.8ms)
+  Rendered layouts/site_shared/_contact.html.erb (0.7ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.4ms)
+Completed 200 OK in 3928ms (Views: 3847.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 15:56:03 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 35ms
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 15:56:09 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (2747.6ms)
+Completed 200 OK in 3818ms (Views: 3746.8ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 15:56:24 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FBBq7p5R7hU8U8Jqa5yYsKFjWg9/vu+tRdk1FJ4j2LpM3MNt9nkiR70tlEEJ0mAteBS5tEwKNML/fjSlspdbUQ==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (22.1ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-04 18:56:24.788718"], ["sign_in_count", 2], ["updated_at", "2017-12-04 18:56:24.790853"], ["id", 1]]
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 796ms (ActiveRecord: 30.3ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 15:56:25 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (1.0ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.0ms)
+Completed 200 OK in 403ms (Views: 379.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 15:56:28 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (24.5ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (3.0ms)
+Completed 200 OK in 449ms (Views: 436.4ms | ActiveRecord: 3.0ms)
+
+
+Started DELETE "/admins/sign_out" for ::1 at 2017-12-04 15:56:35 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"K6EUS3FZALPBFJCijOfMvSGcm6q575tRk35FbD6k7Wk2gaavvJToLoEBvQVkpWxtVAyG1smeWCryWmOxcm4Q4g=="}
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/
+Completed 302 Found in 47ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 15:56:35 -0300
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (15.8ms)
+  Rendered layouts/site_shared/_navigation.html.erb (0.7ms)
+  Rendered layouts/site_shared/_contact.html.erb (0.7ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.5ms)
+Completed 200 OK in 279ms (Views: 261.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 15:56:39 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 15:56:39 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (4.2ms)
+Completed 200 OK in 473ms (Views: 470.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 15:56:40 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 15:56:40 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (4.2ms)
+Completed 200 OK in 310ms (Views: 308.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 15:56:47 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1LDDuAdwxRFpb5XB93fjaqz7BHQclLW5xWAcDhjy2Tgz+L3f/eAh4llxJx3xm8ElPR6Itht8Nd8A3WIHhOvg7w==", "admin"=>{"email"=>"rashawn@turnerkeeling.org", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "rashawn@turnerkeeling.org"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-04 18:56:47.486545"], ["last_sign_in_at", "2017-12-04 18:56:47.486545"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2017-12-04 18:56:47.488089"], ["id", 3]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 410ms (ActiveRecord: 13.4ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 15:56:47 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (0.7ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.7ms)
+Completed 200 OK in 331ms (Views: 324.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 15:56:51 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (15.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.6ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.6ms)
+Completed 200 OK in 407ms (Views: 396.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 15:57:42 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (15.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.6ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.7ms)
+Completed 200 OK in 400ms (Views: 391.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:01:48 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (24.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.7ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.9ms)
+Completed 200 OK in 1674ms (Views: 1664.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:02:33 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (15.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.4ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.7ms)
+Completed 200 OK in 381ms (Views: 373.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:03:36 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (15.9ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.6ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.9ms)
+Completed 200 OK in 629ms (Views: 621.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/backoffice/admins/new" for ::1 at 2017-12-04 16:03:43 -0300
+Processing by Backoffice::AdminsController#new as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:5000/backoffice/admins
+Completed 302 Found in 21ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:03:43 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (16.5ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.7ms)
+Completed 200 OK in 384ms (Views: 375.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:03:51 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (25.5ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.4ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.7ms)
+Completed 200 OK in 495ms (Views: 415.9ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:07:23 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (17.3ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.4ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.8ms)
+Completed 200 OK in 411ms (Views: 400.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:09:15 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (21.5ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.4ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.7ms)
+Completed 200 OK in 504ms (Views: 494.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/backoffice/admins/new" for ::1 at 2017-12-04 16:09:21 -0300
+Processing by Backoffice::AdminsController#new as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:5000/backoffice/admins
+Completed 302 Found in 21ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:09:21 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (17.0ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.9ms)
+Completed 200 OK in 368ms (Views: 359.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:24:03 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (4.7ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.8ms)
+
+
+
+SyntaxError - syntax error, unexpected ')', expecting =>
+ns,model_name.human(count: 2)) );@output_buffer.safe_append=
+                              ^
+/mnt/c/Users/marce/RubyApp/app/views/backoffice/admins/index.html.erb:63: syntax error, unexpected keyword_ensure, expecting ')'
+          ensure
+                ^
+/mnt/c/Users/marce/RubyApp/app/views/backoffice/admins/index.html.erb:65: syntax error, unexpected keyword_end, expecting ')'
+          end
+             ^:
+  app/views/backoffice/admins/index.html.erb:5:in `'
+
+Started POST "/__better_errors/957194a983d92f0f/variables" for ::1 at 2017-12-04 16:24:03 -0300
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:25:11 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (15.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.3ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 351ms (Views: 343.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:25:17 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (20.0ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.3ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.5ms)
+Completed 200 OK in 375ms (Views: 367.2ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/admins/sign_out" for ::1 at 2017-12-04 16:25:41 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"hwJB0k7PkOj6Nl4Sp35396XfAu27qZxyCgHS3/veluPw132jjRmIgU7yoYcx8PbMBCJShYNd3QBhwtWZhwtiLg=="}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 16:25:41 -0300
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (20.4ms)
+  Rendered layouts/site_shared/_navigation.html.erb (0.7ms)
+  Rendered layouts/site_shared/_contact.html.erb (0.8ms)
+  Rendered layouts/site_shared/_footer.html.erb (2.0ms)
+Completed 200 OK in 274ms (Views: 255.9ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 16:25:45 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 16:25:45 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (5.9ms)
+Completed 200 OK in 498ms (Views: 494.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 16:25:45 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 10ms
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 16:25:46 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (4.3ms)
+Completed 200 OK in 402ms (Views: 341.9ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 16:25:52 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Iz/4Z1Wu7INIFTB3wUd4X10CH8NYnbsHl4vUokXSAfJv1gdgfy2oFy1dzdFPbVus/yGtI9dEAIlLzc7SYgPq1g==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-04 19:25:53.047785"], ["last_sign_in_at", "2017-12-04 18:56:24.788718"], ["sign_in_count", 3], ["updated_at", "2017-12-04 19:25:53.049750"], ["id", 1]]
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 413ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 16:25:53 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (0.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.6ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.9ms)
+Completed 200 OK in 368ms (Views: 361.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:25:56 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (25.3ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.1ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.2ms)
+Completed 200 OK in 487ms (Views: 478.0ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/backoffice/admins/new" for ::1 at 2017-12-04 16:25:59 -0300
+Processing by Backoffice::AdminsController#new as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/new.html.erb within layouts/backoffice
+  Rendered backoffice/admins/shared/_form.html.erb (5.5ms)
+  Rendered backoffice/admins/new.html.erb within layouts/backoffice (56.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.9ms)
+Completed 200 OK in 511ms (Views: 496.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 16:26:01 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (24.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.4ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.0ms)
+Completed 200 OK in 447ms (Views: 434.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 17:30:58 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (79.6ms)
+  Rendered layouts/site_shared/_navigation.html.erb (1.0ms)
+  Rendered layouts/site_shared/_contact.html.erb (0.8ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.4ms)
+Completed 200 OK in 13136ms (Views: 13058.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:31:24 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (38.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (1.1ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.9ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.1ms)
+Completed 200 OK in 1996ms (Views: 1810.8ms | ActiveRecord: 41.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 17:31:31 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (5611.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.4ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 6019ms (Views: 5996.3ms | ActiveRecord: 2.3ms)
+
+
+Started DELETE "/admins/sign_out" for ::1 at 2017-12-04 17:31:46 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Bryvn3Ylz1ccwnh3bFb6ur2le8SW3xEbEIF/OhQG6RKRDriKC7fqpQ8FyF9fNpqpPyx8lCyn6+kDf3kWYsqMbw=="}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/
+Completed 302 Found in 2921ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 17:31:49 -0300
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (17.0ms)
+  Rendered layouts/site_shared/_navigation.html.erb (1.2ms)
+  Rendered layouts/site_shared/_contact.html.erb (1.3ms)
+  Rendered layouts/site_shared/_footer.html.erb (2.7ms)
+Completed 200 OK in 470ms (Views: 440.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:31:56 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 17:31:56 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (118.8ms)
+Completed 200 OK in 625ms (Views: 597.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:31:57 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 17:31:57 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (5.4ms)
+Completed 200 OK in 393ms (Views: 390.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 17:32:03 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vDBP9MVcN7G6u346ap58aiuut+CEnnfy18AbXe3N0zLg1iKjC4LNQWSvny+cHsk2iWCZkF2/IpasdV4e17im4A==", "admin"=>{"email"=>"rashawn@turnerkeeling.org", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "rashawn@turnerkeeling.org"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (27.1ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-04 20:32:04.607600"], ["sign_in_count", 2], ["updated_at", "2017-12-04 20:32:04.609581"], ["id", 3]]
+  [1m[35m (59.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 979ms (ActiveRecord: 87.9ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:32:04 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (1.2ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (1.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.7ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (3.0ms)
+Completed 200 OK in 660ms (Views: 643.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 17:32:10 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 80ms (ActiveRecord: 1.0ms)
+
+
+
+NoMethodError - undefined method `with_restricted_access' for #<Class:0x00007f7c5a777fa8>
+Did you mean?  with_reset_password_token:
+  app/policies/admin_policy.rb:12:in `resolve'
+  app/controllers/backoffice/admins_controller.rb:6:in `index'
+
+Started POST "/__better_errors/20cc246683ad49e7/variables" for ::1 at 2017-12-04 17:32:10 -0300
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 17:36:02 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 4.9ms)
+
+
+
+NoMethodError - undefined method `with_restricted_access' for #<Class:0x00007f7c5a8c8678>
+Did you mean?  with_reset_password_token:
+  app/policies/admin_policy.rb:12:in `resolve'
+  app/controllers/backoffice/admins_controller.rb:7:in `index'
+
+Started POST "/__better_errors/d1ff1c687e5761ef/variables" for ::1 at 2017-12-04 17:36:03 -0300
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 17:37:03 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vDBP9MVcN7G6u346ap58aiuut+CEnnfy18AbXe3N0zLg1iKjC4LNQWSvny+cHsk2iWCZkF2/IpasdV4e17im4A==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Redirected to http://localhost:5000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 17:37:03 -0300
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (19.0ms)
+  Rendered layouts/site_shared/_navigation.html.erb (1.1ms)
+  Rendered layouts/site_shared/_contact.html.erb (1.1ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.8ms)
+Completed 200 OK in 318ms (Views: 297.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:11 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (1.1ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 410ms (Views: 398.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:11 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (0.7ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.1ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.2ms)
+Completed 200 OK in 441ms (Views: 428.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 17:37:13 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 85ms (ActiveRecord: 1.5ms)
+
+
+
+NoMethodError - undefined method `with_restricted_access' for #<Class:0x00007f7c5a8c8678>
+Did you mean?  with_reset_password_token:
+  app/policies/admin_policy.rb:12:in `resolve'
+  app/controllers/backoffice/admins_controller.rb:7:in `index'
+
+Started POST "/__better_errors/9319ae6906ffab2e/variables" for ::1 at 2017-12-04 17:37:13 -0300
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:18 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (0.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 372ms (Views: 362.1ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/admins/sign_out" for ::1 at 2017-12-04 17:37:21 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"sAXdHCYrys2T+A/WrdLvPY9ZdJTSWNptpbtJtfno6+ktZSnr26jZGe3eBB9ch7bpX6mTupjruVZtT1gUvs75HQ=="}
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/
+Completed 302 Found in 9ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 17:37:21 -0300
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (4.2ms)
+  Rendered layouts/site_shared/_navigation.html.erb (0.8ms)
+  Rendered layouts/site_shared/_contact.html.erb (0.8ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.5ms)
+Completed 200 OK in 256ms (Views: 245.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:24 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 17:37:24 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (6.0ms)
+Completed 200 OK in 375ms (Views: 371.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:24 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 17:37:24 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (5.6ms)
+Completed 200 OK in 367ms (Views: 364.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 17:37:31 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MdoP0kCvPfFyiOviRFkPSbOELiaWmfQrMXxyDFS5AIMzNRfsDo2+y4UKhW41Xera2Oa+WSMfyX9qa1uubo68ig==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.1ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-04 20:37:31.385580"], ["last_sign_in_at", "2017-12-04 19:25:53.047785"], ["sign_in_count", 4], ["updated_at", "2017-12-04 20:37:31.387284"], ["id", 1]]
+  [1m[35m (41.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 456ms (ActiveRecord: 46.4ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:31 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (0.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.7ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 378ms (Views: 368.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 17:37:33 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (16.9ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.4ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 424ms (Views: 409.6ms | ActiveRecord: 2.1ms)
+
+
+Started DELETE "/admins/sign_out" for ::1 at 2017-12-04 17:37:41 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ucK9bMk8YunFs/sa3CTC5zAiE+hanEC6B8Hp5jeORznuTM17TvtKLLi8L1gRf9A036IExC4eX/mFFaYEaWfl4w=="}
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/
+Completed 302 Found in 11ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/" for ::1 at 2017-12-04 17:37:41 -0300
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (5.4ms)
+  Rendered layouts/site_shared/_navigation.html.erb (0.7ms)
+  Rendered layouts/site_shared/_contact.html.erb (0.8ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.4ms)
+Completed 200 OK in 264ms (Views: 254.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:44 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 17:37:44 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (3.6ms)
+Completed 200 OK in 370ms (Views: 368.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:44 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-04 17:37:44 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (4.2ms)
+Completed 200 OK in 363ms (Views: 360.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-04 17:37:50 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IkC94Hs9DmD+SkBVBpyLx7lw5Ozp8YlLH8bj8E/UnPFYB2RJZWpqbVWtqD/2ithqdU2FDVLc2FV6S21dQLBJsw==", "admin"=>{"email"=>"rashawn@turnerkeeling.org", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "rashawn@turnerkeeling.org"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (10.5ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-04 20:37:50.951781"], ["last_sign_in_at", "2017-12-04 20:32:04.607600"], ["sign_in_count", 3], ["updated_at", "2017-12-04 20:37:50.953335"], ["id", 3]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 424ms (ActiveRecord: 15.8ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-04 17:37:51 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (0.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.8ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.0ms)
+Completed 200 OK in 396ms (Views: 384.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-04 17:37:52 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 1.1ms)
+
+
+
+NoMethodError - undefined method `with_restricted_access' for #<Class:0x00007f7c5a8c8678>
+Did you mean?  with_reset_password_token:
+  app/policies/admin_policy.rb:12:in `resolve'
+  app/controllers/backoffice/admins_controller.rb:7:in `index'
+
+Started POST "/__better_errors/c978156d1c8fd998/variables" for ::1 at 2017-12-04 17:37:52 -0300

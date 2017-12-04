@@ -12,8 +12,12 @@ gem 'debase', '~> 0.2.2.beta10'
 gem 'devise'
 # Devise i18n
 gem 'devise-i18n'
+# Enum_help
+gem 'enum_help'
 # Foreman
 gem 'foreman'
+# Pudit - Autenticação
+gem 'pundit'
 # i18n
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 # Bootsrap SB Admin

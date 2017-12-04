@@ -1,0 +1,6 @@
+'pt-BR':
+  enums:
+    admin:
+      role:
+        full_access: Super Usuário
+        restricted_access: Acesso Administrativo

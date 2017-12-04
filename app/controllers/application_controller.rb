@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-
-  respond_to :html, :json
   
+  include Pundit
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   protect_from_forgery with: :exception
 
@@ -15,5 +16,10 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+  end
+
+  def user_not_authorized
+    flash[:alert] = "Você nãp possui autorização de uso. Por favor contate o ADM do sistema."
+    redirect_to(request.referrer || root_path)
   end
 end

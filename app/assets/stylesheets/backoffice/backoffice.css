@@ -133,3 +133,17 @@ body {
   background-color: darkgray;
   border-color: black;
 }
+
+.label-success {
+  font-weight: bold;
+  color: white;
+  background-color: #5cb85c;
+  border-color: black;
+}
+
+.label-primary {
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  border-color: black;
+}

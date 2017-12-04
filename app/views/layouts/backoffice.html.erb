@@ -37,6 +37,11 @@
       <script>
         $.notify("<%= notice %>", "success")    
       </script>
-    <% end %>    
+    <% end %>
+    <% if alert %>
+      <script>
+        $.notify("<%= alert %>", "error")    
+      </script>
+    <% end %>
   </body>
 </html>
