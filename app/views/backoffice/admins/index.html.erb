@@ -7,6 +7,10 @@
             <%= link_to  new_backoffice_admin_path, class: "btn btn-success btn-circle pull-right", style:"margin-top: -5px;" do %>
                 <i class="fa fa-plus"></i>
             <% end %>
+        <% else %>
+            <%= link_to '#', disabled: 'disabled', class:"btn btn-success btn-circle pull-right", style:"margin-top: -5px" do %>
+                <i class="fa fa-plus"></i>
+            <% end %>
         <% end %>    
     </div>
     <div class="panel-body">
@@ -15,9 +19,9 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Tipo de Acesso</th>
+                        <th><%= @admins.model.human_attribute_name('name') %></th>
+                        <th><%= @admins.model.human_attribute_name('role') %></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,13 +31,13 @@
                             <td><%= admin.name %></td>
                             <td><%= admin.email %></td>
                             <td>
-                                <% if admin.role_i18n == 'Super Usuário' %>
+                                <% if admin.role == 'Super Usuário' %>
                                     <span class="label label-success">
-                                        <%= admin.role_i18n %>
+                                        <%= admin.role %>
                                     </span>
                                 <% else %>
                                     <span class="label label-primary">
-                                        <%= admin.role_i18n %>
+                                        <%= admin.role %>
                                     </span>
                                 <% end %>
                             </td>
