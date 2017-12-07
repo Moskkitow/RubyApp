@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
+  namespace :backoffice do
+    get 'show_mail/index'
+  end
+
   get 'backoffice', to: 'backoffice/dashboard#index'  
   
   namespace :backoffice do
-    resources :send_mail, only: [:edit, :create, :show]
+    resources :send_mail, only: [:edit, :create]
+    resources :show_mail, only: [:index]
     resources :categories, except: [:show, :destroy]
     resources :admins, except: [:show]
     get 'dashboard', to: 'dashboard#index'

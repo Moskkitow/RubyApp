@@ -19,8 +19,4 @@ class Backoffice::SendMailController < ApplicationController
             format.js
         end        
     end
-
-    # def show
-    #     @admin = AdminMailer.show_email(current_admin, params[:'recipient-name'], params[:'subject-text'], params[:'messase-text'])
-    # end
 end
