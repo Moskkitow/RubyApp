@@ -26,6 +26,14 @@ body {
   }
 }
 
+.navbar-inverse{
+  background-color: #eee;  
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border-bottom:1px solid #e7e7e7;
+}
+
 .navbar-top-links {
   margin-right: 0;
 }

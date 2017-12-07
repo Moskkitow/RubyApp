@@ -15,7 +15,16 @@ body{
 #page-wrapper{
     padding:0 15px;
     min-height:150px;
-    background-color:#fff}
+    background-color:#fff
+}
+
+.navbar-inverse{
+    background-color: #eee;  
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-bottom:1px solid #e7e7e7;
+}
     
 @media (min-width:500px){
     #page-wrapper{
