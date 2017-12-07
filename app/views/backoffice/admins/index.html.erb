@@ -29,7 +29,6 @@
                         <tr>
                             <td><%= admin.id %></td>
                             <td><%= admin.name %></td>
-                            <td><%= admin.email %></td>
                             <td><%= admin.role_i18n %></td>
                             <td>
                                 <% if admin.role_i18n == 'Super Usuário' %>
@@ -55,7 +54,7 @@
                                         <i class="fa fa-minus"></i>
                                     <% end %>    
                                 <% end %>
-                                <%= link_to '#', class: "btn btn-primary btn-circle", data: {toggle: 'modal', target: '#sendMailModal'} do %>
+                                <%= link_to '#', class: "btn btn-primary btn-circle", remote: true do %>
                                     <i class="fa fa-mail-forward"></i>
                                 <% end %>
                             </td>
@@ -68,4 +67,4 @@
 </div>
 </body>
 
-<%= render partial: "C:\Users\marce\RubyApp\app\views\backoffice\admins\shared\_send_mail.html.erb" %>
+<%= render partial: "backoffice/admins/shared/send_mail.html.erb" %>
