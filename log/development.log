@@ -41180,3 +41180,485 @@ Migrating to AddNameAndRoteToAdmin (20171202231145)
   [1m[36mAdmin Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "admins" WHERE "admins"."email" = ? LIMIT ?[0m  [["email", "jasmin@boyleschulist.org"], ["LIMIT", 1]]
   [1m[35mSQL (4.7ms)[0m  [1m[32mINSERT INTO "admins" ("email", "encrypted_password", "created_at", "updated_at", "name", "role") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "jasmin@boyleschulist.org"], ["encrypted_password", "$2a$11$vOCYWrqjiOB2t.k1J2V9veXPXITb44aJqyqG4U33b1mvJx.hepaKC"], ["created_at", "2017-12-07 13:18:29.809053"], ["updated_at", "2017-12-07 13:18:29.809053"], ["name", "Laura Sá"], ["role", 1]]
   [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/rails/info/routes" for ::1 at 2017-12-07 10:36:39 -0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::InfoController#routes as HTML
+  Rendering /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/railties-5.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/actionpack-5.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [42 times] (113.7ms)
+  Rendered /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/actionpack-5.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (107.8ms)
+  Rendered /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/railties-5.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (277.0ms)
+Completed 200 OK in 401ms (Views: 348.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/routes?path=mail" for ::1 at 2017-12-07 10:36:46 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"mail"}
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2017-12-07 10:37:17 -0300
+Processing by Rails::InfoController#routes as HTML
+  Rendering /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/railties-5.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/actionpack-5.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [42 times] (57.5ms)
+  Rendered /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/actionpack-5.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (4.0ms)
+  Rendered /home/moskkitow/.rvm/gems/ruby-2.4.2/gems/railties-5.1.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (85.5ms)
+Completed 200 OK in 125ms (Views: 113.8ms)
+
+
+Started GET "/rails/info/routes?path=mail" for ::1 at 2017-12-07 10:37:21 -0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"mail"}
+Completed 200 OK in 6ms (Views: 0.6ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 10:41:33 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 201ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/" for ::1 at 2017-12-07 10:41:34 -0300
+Processing by Site::HomeController#index as HTML
+Started GET "/admins/sign_in" for ::1 at 2017-12-07 10:41:37 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered site/home/index.html.erb within layouts/site (35.9ms)
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (665.2ms)
+Started GET "/" for ::1 at 2017-12-07 10:42:01 -0300
+  Rendered layouts/site_shared/_navigation.html.erb (0.8ms)
+  Rendered layouts/site_shared/_contact.html.erb (1.3ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.5ms)
+Completed 200 OK in 46384ms (Views: 46303.9ms | ActiveRecord: 6.0ms)
+
+
+Completed 200 OK in 46552ms (Views: 46537.0ms | ActiveRecord: 0.0ms)
+
+
+Processing by Site::HomeController#index as HTML
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (24.3ms)
+  Rendered layouts/site_shared/_navigation.html.erb (0.9ms)
+  Rendered layouts/site_shared/_contact.html.erb (1.1ms)
+  Rendered layouts/site_shared/_footer.html.erb (1.6ms)
+Completed 200 OK in 299ms (Views: 284.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-07 10:42:30 -0300
+Processing by Backoffice::DashboardController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admins/sign_in" for ::1 at 2017-12-07 10:42:33 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering admins/sessions/new.html.erb within layouts/backoffice_devise
+  Rendered admins/sessions/new.html.erb within layouts/backoffice_devise (4.6ms)
+Completed 200 OK in 404ms (Views: 333.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/admins/sign_in?role=form" for ::1 at 2017-12-07 10:42:45 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qEObV8XAuDke0hO11Sg4RBSuv5XD8VEtu96ZMK4oeC1DGX9fBec81JN0eqOroqHij4cDCBFbi3shxEtna4ZokA==", "admin"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in", "role"=>"form"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."email" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["email", "admin@admin"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (7.8ms)[0m  [1m[33mUPDATE "admins" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "admins"."id" = ?[0m  [["current_sign_in_at", "2017-12-07 13:42:45.749922"], ["last_sign_in_at", "2017-12-07 13:42:45.749922"], ["current_sign_in_ip", "::1"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2017-12-07 13:42:45.752037"], ["id", 1]]
+  [1m[35m (10.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:5000/backoffice
+Completed 302 Found in 579ms (ActiveRecord: 19.5ms)
+
+
+Started GET "/backoffice" for ::1 at 2017-12-07 10:42:45 -0300
+Processing by Backoffice::DashboardController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/dashboard/index.html.erb within layouts/backoffice
+  Rendered backoffice/dashboard/index.html.erb within layouts/backoffice (0.9ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.7ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.6ms)
+Completed 200 OK in 375ms (Views: 366.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 10:42:49 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/shared/_send_mail.html.erb (0.8ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (27.8ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.0ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.9ms)
+Completed 200 OK in 401ms (Views: 383.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/backoffice/admins/1/edit" for ::1 at 2017-12-07 10:42:56 -0300
+Processing by Backoffice::AdminsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/edit.html.erb within layouts/backoffice
+  Rendered backoffice/admins/shared/_form.html.erb (215.4ms)
+  Rendered backoffice/admins/edit.html.erb within layouts/backoffice (219.7ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.7ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.9ms)
+Completed 200 OK in 630ms (Views: 596.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 10:43:00 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/shared/_send_mail.html.erb (1.3ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (37.3ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.2ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.5ms)
+Completed 200 OK in 517ms (Views: 500.8ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:43:01 -0300
+
+AbstractController::ActionNotFound - The action 'edit' could not be found for Backoffice::SendMailController:
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:43:02 -0300
+
+AbstractController::ActionNotFound - The action 'edit' could not be found for Backoffice::SendMailController:
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:44:52 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+No template found for Backoffice::SendMailController#edit, rendering head :no_content
+Completed 204 No Content in 918ms
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:44:53 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+No template found for Backoffice::SendMailController#edit, rendering head :no_content
+Completed 204 No Content in 1187ms
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 10:54:58 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/shared/_send_mail.html.erb (0.8ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (42.0ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.6ms)
+Completed 200 OK in 599ms (Views: 489.3ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 10:55:02 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.2ms)
+Completed 200 OK in 52ms (Views: 43.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 10:55:03 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.3ms)
+Completed 200 OK in 51ms (Views: 43.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 10:55:10 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.1ms)
+Completed 200 OK in 43ms (Views: 37.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 10:55:10 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.3ms)
+Completed 200 OK in 47ms (Views: 40.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 10:56:01 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+Started GET "/" for ::1 at 2017-12-07 10:56:03 -0300
+Processing by Site::HomeController#index as HTML
+  [1m[36mAdmin Load (7.4ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/shared/_send_mail.html.erb (0.7ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (2826.4ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (2.6ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.4ms)
+Completed 200 OK in 5445ms (Views: 5296.3ms | ActiveRecord: 11.3ms)
+
+
+  Rendering site/home/index.html.erb within layouts/site
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  Rendered site/home/index.html.erb within layouts/site (39.5ms)
+  Rendered layouts/site_shared/_navigation.html.erb (1.4ms)
+  Rendered layouts/site_shared/_contact.html.erb (1.1ms)
+  Rendered layouts/site_shared/_footer.html.erb (2.3ms)
+Completed 200 OK in 3114ms (Views: 608.7ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:56:10 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.1ms)
+Completed 200 OK in 79ms (Views: 55.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:56:10 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 59ms (Views: 50.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 10:56:12 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.3ms)
+Completed 200 OK in 46ms (Views: 39.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 10:56:13 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.1ms)
+Completed 200 OK in 51ms (Views: 44.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:57:08 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 46ms (Views: 38.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:57:08 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (0.9ms)
+Completed 200 OK in 51ms (Views: 43.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/backoffice/admins/2/edit" for ::1 at 2017-12-07 10:58:18 -0300
+Processing by Backoffice::AdminsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (1.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/admins/edit.html.erb within layouts/backoffice
+  Rendered backoffice/admins/shared/_form.html.erb (305.1ms)
+  Rendered backoffice/admins/edit.html.erb within layouts/backoffice (312.7ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.7ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.0ms)
+Completed 200 OK in 746ms (Views: 732.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 10:58:20 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.7ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/shared/_send_mail.html.erb (1.7ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (49.9ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (2.8ms)
+Completed 200 OK in 557ms (Views: 542.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:58:22 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 46ms (Views: 39.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 10:58:22 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.1ms)
+Completed 200 OK in 50ms (Views: 39.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/backoffice/admins/new" for ::1 at 2017-12-07 10:58:23 -0300
+Processing by Backoffice::AdminsController#new as HTML
+  [1m[36mAdmin Load (1.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/new.html.erb within layouts/backoffice
+  Rendered backoffice/admins/shared/_form.html.erb (11.2ms)
+  Rendered backoffice/admins/new.html.erb within layouts/backoffice (18.7ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.3ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.5ms)
+Completed 200 OK in 439ms (Views: 424.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 10:58:25 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/shared/_send_mail.html.erb (1.3ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (40.2ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.8ms)
+Completed 200 OK in 430ms (Views: 413.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/backoffice/send_mail/11/edit" for ::1 at 2017-12-07 10:58:26 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"11"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 48ms (Views: 41.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/11/edit" for ::1 at 2017-12-07 10:58:27 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"11"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 50ms (Views: 43.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 11:00:10 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.2ms)
+Completed 200 OK in 46ms (Views: 38.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 11:00:10 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (0.9ms)
+Completed 200 OK in 56ms (Views: 49.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 11:00:42 -0300
+Processing by Backoffice::SendMailController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.6ms)
+
+
+
+ActionController::UnknownFormat - ActionController::UnknownFormat:
+  app/controllers/backoffice/send_mail_controller.rb:4:in `edit'
+
+Started POST "/__better_errors/c1a6bdf78e5387a0/variables" for ::1 at 2017-12-07 11:00:43 -0300
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 11:03:04 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.6ms)
+Completed 200 OK in 55ms (Views: 46.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 11:03:04 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 77ms (Views: 68.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/backoffice/admins" for ::1 at 2017-12-07 11:03:46 -0300
+Processing by Backoffice::AdminsController#index as HTML
+  [1m[36mAdmin Load (1.3ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? ORDER BY "admins"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/admins/index.html.erb within layouts/backoffice
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT "admins".* FROM "admins"[0m
+  Rendered backoffice/admins/shared/_send_mail.html.erb (0.9ms)
+  Rendered backoffice/admins/index.html.erb within layouts/backoffice (44.9ms)
+  Rendered layouts/backoffice_shared/_header.html.erb (1.5ms)
+  Rendered layouts/backoffice_shared/_sidebar.html.erb (1.6ms)
+Completed 200 OK in 609ms (Views: 490.3ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 11:03:50 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.9ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 49ms (Views: 40.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 11:03:50 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.7ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 51ms (Views: 41.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 11:05:00 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (2.1ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.8ms)
+Completed 200 OK in 160ms (Views: 54.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/backoffice/send_mail/2/edit" for ::1 at 2017-12-07 11:05:01 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"2"}
+  [1m[36mAdmin Load (0.6ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.1ms)
+Completed 200 OK in 64ms (Views: 55.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 11:05:09 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 48ms (Views: 40.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/backoffice/send_mail/1/edit" for ::1 at 2017-12-07 11:05:09 -0300
+Processing by Backoffice::SendMailController#edit as JS
+  Parameters: {"id"=>"1"}
+  [1m[36mAdmin Load (1.0ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" WHERE "admins"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering backoffice/send_mail/edit.js.erb
+  Rendered backoffice/send_mail/edit.js.erb (1.0ms)
+Completed 200 OK in 63ms (Views: 52.4ms | ActiveRecord: 1.0ms)
+
+
