@@ -117,14 +117,20 @@ body {
 
 .btn-warning {
   color: #fff;
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
+  background-color: darkred;
+  border-color: black;
 }
 
 .btn-info {
   color: #fff;
-  background-color: #5bc0de;
-  border-color: #5bc0de;
+  background-color: darkblue;
+  border-color: black;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: green;
+  border-color: black;
 }
 
 .btn-default {

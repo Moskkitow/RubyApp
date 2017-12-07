@@ -43,7 +43,7 @@
                                 <% end %>
                             </td>
                             <td style="width: 150px">
-                                <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-primary btn-circle" do %>
+                                <%= link_to edit_backoffice_admin_path(admin), class: "btn btn-info btn-circle" do %>
                                     <i class="fa fa-edit"></i>
                                 <% end %>
                                 <% if (current_admin.id != admin.id) && policy(@admins).destroy? %>  
@@ -55,6 +55,9 @@
                                         <i class="fa fa-minus"></i>
                                     <% end %>    
                                 <% end %>
+                                <%= link_to '#', class: "btn btn-primary btn-circle", data: {toggle: 'modal', target: '#sendMailModal'} do %>
+                                    <i class="fa fa-mail-forward"></i>
+                                <% end %>
                             </td>
                         </tr>
                     <% end %>    
@@ -64,3 +67,5 @@
     </div>
 </div>
 </body>
+
+<%= render partial: "C:\Users\marce\RubyApp\app\views\backoffice\admins\shared\_send_mail.html.erb" %>
