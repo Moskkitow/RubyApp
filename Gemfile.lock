@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: c794f6df0a10b94f377b9efea08dcfa4e73cfc43
+  specs:
+    paperclip (5.1.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
+
+GIT
   remote: https://github.com/svenfuchs/rails-i18n.git
   revision: 7416877aa3132a3f627cc01f872720decf806cc2
   branch: master
@@ -77,6 +88,9 @@ GEM
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -135,6 +149,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (2.1.0)
     json (2.1.0-java)
+    lerolero_generator (1.0.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -155,9 +170,22 @@ GEM
       sqlite3-ruby
       thin
     method_source (0.9.0)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    mimemagic (0.3.2)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
+    monetize (1.4.0)
+      money (~> 6.7)
+    money (6.10.0)
+      i18n (>= 0.6.4, < 1.0)
+    money-rails (1.7.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.4.0)
+      money (~> 6.7)
+      railties (>= 3.0)
     multi_json (1.12.2)
     mustermann (1.0.1)
     nio4r (2.1.0)
@@ -324,8 +352,11 @@ DEPENDENCIES
   foreman
   jbuilder (~> 2.5)
   jquery-rails
+  lerolero_generator
   listen (>= 3.0.5, < 3.2)
   mailcatcher
+  money-rails
+  paperclip!
   popper_js (~> 1.11)!
   puma (~> 3.7)
   pundit

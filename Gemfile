@@ -18,6 +18,10 @@ gem 'enum_help'
 gem 'foreman'
 # Pudit - Autenticação
 gem 'pundit'
+# Money-Rails
+gem 'money-rails'
+# PaperClip
+gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 # i18n
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 # Bootsrap SB Admin
@@ -77,6 +81,8 @@ end
 group :development do
   # Gem FAKER
   gem 'faker'
+  # Gem LeroLero
+  gem 'lerolero_generator'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
