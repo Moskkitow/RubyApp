@@ -2,11 +2,15 @@ namespace :dev do
   
   desc "Setup Development"
   task setup: :environment do
-    # images_path = Rails.root.join('public','system')
+    images_path = Rails.root.join('public','system')
 
     puts "Executando o setup para desenvolvimento..."
 
+    puts "Setando ENVAIROMENT..."
+
     puts %x(rake db:environment:set RAILS_ENV=development)
+
+    puts "Concluído!!"
   
     puts "APAGANDO BD... #{%x(rake db:drop)}"
   
@@ -18,8 +22,8 @@ namespace :dev do
     puts %x(rake db:migrate)
     puts %x(rake db:seed)
     puts %x(rake dev:generate_admins)
-    # puts %x(rake dev:generate_members)
-    puts %x(rake dev:generate_ads)
+    puts %x(rake dev:generate_members)
+    # puts %x(rake dev:generate_ads)
     # puts %x(rake dev:generate_comments)
   
     puts "Setup completado com sucesso!"
@@ -82,7 +86,7 @@ namespace :dev do
         category: Category.all.sample,
         price: "#{Random.rand(500)},#{Random.rand(99)}",
         # finish_date: Date.today + Random.rand(90),
-        # picture: File.new(Rails.root.join('public', 'templates', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
+        picture: File.new(Rails.root.join('public', 'templates', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
       )
     end
   
@@ -95,7 +99,7 @@ namespace :dev do
         category: Category.all.sample,
         price: "#{Random.rand(500)},#{Random.rand(99)}",
         # finish_date: Date.today + Random.rand(90),
-        # picture: File.new(Rails.root.join('public', 'templates', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
+        picture: File.new(Rails.root.join('public', 'templates', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
       )
     end
   

@@ -1,6 +1,6 @@
 'pt-BR':
   app:
-    name: EscamboApp
-    site_subtitle: Site - EscamboApp
-    backoffice_subtitle: Backoffice - EscamboApp
-    profile_subtitle: Perfil - EscamboApp
+    name: RubyApp
+    site_subtitle: Site - RubyApp
+    backoffice_subtitle: Backoffice - RubyApp
+    profile_subtitle: Perfil - RubyApp
