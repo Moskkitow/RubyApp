@@ -2,20 +2,30 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
         <%= link_to t('app.name'), site_home_path, class: "navbar-brand js-scroll-trigger" %>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav text-uppercase ml-auto">
-              <li class="nav-item">
-                <%= link_to  "Login", new_member_session_path %>
-              </li>             
-              <li class="nav-item">
-                <%= link_to  "Sign UP", new_member_registration_path %>
-              </li>
-            </ul>
-        </div>
+        <ul class="nav navbar-top-links navbar-right">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav pull-right">
+                    <% unless member_signed_in? %>
+                        <li class="list-inline-item">
+                            <%= link_to "#{t('top_menu.sign_in')}", new_member_session_path %>
+                        </li>
+                        <li class="list-inline-item">
+                            <%= link_to "#{t('top_menu.sign_up')}", new_member_registration_path %>
+                        </li>
+                    <% else %>
+                        <li class="list-inline-item">
+                            <%= link_to current_member.email, "#" %>
+                        </li>
+                        <li class="list-inline-item">
+                            <%= link_to "#{t('top_menu.profile')}", site_profile_dashboard_index_path %>
+                        </li>
+                        <li class="list-inline-item">
+                            <%= link_to "#{t('top_menu.logout')}", destroy_member_session_path, method: :delete %>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+        </ul> 
     </div>
 </nav>
 </body>

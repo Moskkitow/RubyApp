@@ -30,3 +30,20 @@ puts "Cadastrando o Admin padrão"
 Admin.create!(name: "ADM Padrão", email: "admin@admin", password: "admin123", password_confirmation: "admin123", role: 0)
 
 puts "Admin cadastrado com sucesso!"
+
+puts "Cadastrando o MEMBRO Padrão..."
+
+member = Member.new(
+  email: "membro@membro.com",
+  password: "123456",
+  password_confirmation: "123456"
+)
+
+# member.build_profile_member
+
+# member.profile_member.first_name = Faker::Name.first_name
+# member.profile_member.second_name = Faker::Name.last_name
+
+member.save!
+
+puts "MEMBRO cadastrado com sucesso!"
