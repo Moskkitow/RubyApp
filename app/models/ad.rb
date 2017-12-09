@@ -10,13 +10,13 @@ class Ad < ActiveRecord::Base
     before_save :md_to_html
   
     # Associations
-    belongs_to :member
+    belongs_to :member, optional: true
     belongs_to :category, counter_cache: true
     has_many :comments
   
     # Validates
-    validates :title, :description_md, :description_short, :category, presence: true 
-    validates :picture, :finish_date, presence:true
+    validates :title, :category, presence: true 
+    # validates :picture, presence:true
     validates :price, numericality: { greater_than: 0 }
   
     # Scopes
