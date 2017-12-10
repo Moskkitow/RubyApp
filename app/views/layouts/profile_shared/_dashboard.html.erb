@@ -1,0 +1,23 @@
+<body>
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <%= link_to  "Dashboard", site_profile_dashboard_index_path %>
+                </li>
+                <li>
+                    <%= link_to  "Meus Anúncios", site_profile_ads_path %>
+                </li>
+            </ul>
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <%= yield %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

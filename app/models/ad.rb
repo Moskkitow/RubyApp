@@ -1,12 +1,12 @@
 class Ad < ActiveRecord::Base
   
-    # Constants
+     # Constants
     QTT_PER_PAGE = 6
   
-    # RatyRate gem
-    # ratyrate_rateable 'quality'
+    # # RatyRate gem
+    # # ratyrate_rateable 'quality'
   
-    # Callbacks
+     # Callbacks
     before_save :md_to_html
   
     # Associations
@@ -16,12 +16,12 @@ class Ad < ActiveRecord::Base
   
     # Validates
     validates :title, :category, presence: true 
-    # validates :picture, presence:true
+    validates :picture, presence:true
     validates :price, numericality: { greater_than: 0 }
   
     # Scopes
-    scope :descending_order, ->(page) {
-      order(created_at: :desc).page(page).per(QTT_PER_PAGE)
+    scope :descending_order, ->(quantity = 10) {
+      limit(quantity).order(created_at: :desc)
     }
   
     scope :search, ->(term) {
@@ -69,9 +69,9 @@ class Ad < ActiveRecord::Base
           autolink: true
         }
   
-        renderer = Redcarpet::Render::HTML.new(options)
-        markdown = Redcarpet::Markdown.new(renderer, extensions)
+    #     renderer = Redcarpet::Render::HTML.new(options)
+    #     markdown = Redcarpet::Markdown.new(renderer, extensions)
   
-        self.description = markdown.render(self.description_md)
-      end
+    #     self.description = markdown.render(self.description_md)
+   end
   end

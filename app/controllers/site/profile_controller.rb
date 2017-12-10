@@ -1,6 +1,5 @@
 class Site::ProfileController < SiteController
     layout "profile"
-    def index
-        
+    def index        
     end
 end
