@@ -1,26 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+  
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'site/site', media: 'all' %>
     <%= stylesheet_link_tag 'site/profile/profile', media: 'all' %>
-    <%= stylesheet_link_tag 'site/site.min', media: 'all' %>
+    <%= stylesheet_link_tag 'site/site.min.css', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag 'site' %>
-        
+    <%= javascript_include_tag 'profile' %>
+    
   </head>
+
   <body>
     <%= render partial: "layouts/site_shared/navigation" %>
-    <%= render partial: "layouts/profile_shared/dashboard"%>    
-    <%= render partial: "layouts/site_shared/footer" %>
+    <%= render partial: "layouts/profile_shared/dashboard" %>
   </body>
 </html>
