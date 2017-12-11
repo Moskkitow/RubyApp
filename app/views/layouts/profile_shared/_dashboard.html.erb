@@ -5,21 +5,17 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li>
-                        <a href="#">Dashboard</a>
+                        <%= link_to  "Dashboard", site_profile_dashboard_index_path %>
+                    </li>
+                    <li>
+                        <%= link_to  "Meus Anuncios", site_profile_ads_path %>
                     </li>
             </div>
             <div id="page-content-wrapper">
                 <div class="container-fluid">
                     <%= yield %>
-                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
                 </div>
             </div>
         </div>
-        <script>
-            $("#menu-toggle").click(function(e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
     </body>
 </html>
