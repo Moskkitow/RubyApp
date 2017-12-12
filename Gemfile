@@ -24,6 +24,11 @@ gem 'pundit'
 gem 'money-rails'
 # PaperClip
 gem 'paperclip', git: 'https://github.com/thoughtbot/paperclip.git'
+# gem AWS
+gem 'aws-sdk-rails'
+gem 'aws-sdk', '~> 3'
+gem 'aws-sdk-s3', '~> 1'
+gem 'aws-sdk-ec2', '~> 1'
 # i18n
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 # Bootsrap SB Admin
@@ -49,6 +54,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap.growl'
   # BootboxJs
   gem 'rails-assets-bootbox'
+  # A cross-browser library of CSS animations. As easy to use as an easy thing
+  gem 'rails-assets-animate-css'
 end
 
 # Use CoffeeScript for .coffee assets and views
