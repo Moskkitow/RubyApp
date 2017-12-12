@@ -46,7 +46,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '4.0.0.beta'
   gem 'popper_js', '~> 1.11'
   # Bootsrap Notify
-  gem 'rails-assets-bootstrap.grownl'
+  gem 'rails-assets-bootstrap.growl'
   # BootboxJs
   gem 'rails-assets-bootbox'
 end
