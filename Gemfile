@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Jquery Date
+gem 'jquery-ui-rails'
 # Ruby VS Code
 gem 'ruby-debug-ide', '~> 0.6.0'
 gem 'debase', '~> 0.2.2.beta10'
@@ -21,7 +23,7 @@ gem 'pundit'
 # Money-Rails
 gem 'money-rails'
 # PaperClip
-gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'paperclip', git: 'https://github.com/thoughtbot/paperclip.git'
 # i18n
 gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 # Bootsrap SB Admin
@@ -43,8 +45,8 @@ source 'https://rails-assets.org' do
   # Bootsrap
   gem 'rails-assets-bootstrap', '4.0.0.beta'
   gem 'popper_js', '~> 1.11'
-  # A simple, versatile notification library
-  gem 'rails-assets-notifyjs'
+  # Bootsrap Notify
+  gem 'rails-assets-bootstrap.grownl'
   # BootboxJs
   gem 'rails-assets-bootbox'
 end

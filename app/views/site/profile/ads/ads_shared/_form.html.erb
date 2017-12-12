@@ -1,3 +1,9 @@
+<% content_for :javascripts do %>
+    <%= javascript_include_tag 'site/profile/ads' %>
+<% end %>
+
+<%= render partial: 'layouts/shared/notifications_ad' %>
+
 <%= form_for([:site, :profile, @ad], html: { multipart: true }) do |f| %>
 <div class="form-group row">
     <%= f.label :title, class: "col-2 col-form-label" %>
@@ -30,6 +36,12 @@
     </div>
 </div>
 <div class="form-group row">
+    <%= f.label :finish_date, class: "col-2 col-form-label" %>
+    <div class="col-3">
+        <%= f.text_field :finish_date, class:"form-control datepicker", value: (l(@ad.finish_date) unless @ad.finish_date.blank?) %> 
+    </div>
+</div>
+<div class="form-group row">
     <%= f.label :description, class: "col-2 col-form-label" %>
     <div class="col-6">
         <%= f.text_area (:description), class:"form-control", rows: 12  %> 
@@ -37,3 +49,5 @@
 </div>
 <%= submit_tag "Salvar", class:"btn btn-defuklt" %>
 <% end %>
+
+<%= render partial: 'layouts/shared/notifications' %>

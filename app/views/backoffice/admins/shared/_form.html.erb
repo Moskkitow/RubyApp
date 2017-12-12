@@ -1,12 +1,8 @@
 <h1>Administradores</h1>
 <body>
-<% if @admin.errors.any? %>
-    <% @admin.errors.full_messages.each do |message| %>
-        <script>
-            $.notify("<%= message %>")
-        </script>
-    <% end %>
-<% end %>    
+
+<%= render partial: 'layouts/shared/notifications_adm' %>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <%= action %>

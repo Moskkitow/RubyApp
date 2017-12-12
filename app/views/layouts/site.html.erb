@@ -14,14 +14,17 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_link_tag 'site/site', media: 'all' %>
     <%= stylesheet_link_tag 'site/site.min.css', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'site' %>
-    
+
   </head>
   <body>
+    
     <%= render partial: "layouts/site_shared/navigation" %>
     <%= yield %>
     <%= render partial: "layouts/site_shared/contact" %>
     <%= render partial: "layouts/site_shared/footer" %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'site' %>
+    
   </body>
 </html>

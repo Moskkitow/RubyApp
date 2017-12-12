@@ -1,0 +1,7 @@
+<% if @ad.errors.any? %>
+    <% @ad.errors.full_messages.each do |message| %>
+        <script>
+            $.notify("<%= message %>", { className: "error", globalPosition: 'top center' } )
+        </script>
+    <% end %>
+<% end %>   

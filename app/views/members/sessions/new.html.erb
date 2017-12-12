@@ -1,26 +1,47 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "members/shared/links" %>
+<section class="login-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 login-sec">
+                <h2 class="text-center">Login Now</h2>
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "login-form") do |f| %>
+                    <div class="form-group">
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email, autofocus: true %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.label :password %><br />
+                        <%= f.password_field :password, autocomplete: "off" %>
+                    </div>
+                    <% if devise_mapping.rememberable? -%>
+                        <div class="form-check">
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                            <div class="actions">
+                                <%= f.submit "Log in", class: "btn btn-outline-secondary btn-sm" %>
+                            </div>
+                        </div>
+                    <% end %>      
+                <% end %>
+                <div class="copy-text">Created with <i class="fa fa-heart"></i> by <a href="http://grafreez.com">Grafreez.com</a></div>
+            </div>
+            <div class="col-md-8 banner-sec">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" class="active"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="https://static.pexels.com/photos/33972/pexels-photo.jpg" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                                <div class="banner-text">
+                                    <h2>This is Heaven</h2>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                                </div>	
+                            </div>
+                        </div>                       
+                    </div>	   
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>

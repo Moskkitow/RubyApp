@@ -15,4 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 Rails.application.config.assets.precompile += %w( site.js site/site.css site/site.min.css)
 Rails.application.config.assets.precompile += %w( backoffice.js backoffice/backoffice.css backoffice/backoffice.min.css )
-Rails.application.config.assets.precompile += %w( profile.js site/profile/profile.css )
+Rails.application.config.assets.precompile += %w( profile.js site/profile/ads.js site/profile/profile.css )
+Rails.application.config.assets.precompile += %w( site/login.css )

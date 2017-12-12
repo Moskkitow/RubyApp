@@ -15,14 +15,18 @@
     <%= stylesheet_link_tag 'site/site', media: 'all' %>
     <%= stylesheet_link_tag 'site/profile/profile', media: 'all' %>
     <%= stylesheet_link_tag 'site/site.min.css', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'site' %>
-    <%= javascript_include_tag 'profile' %>
-    
+
   </head>
 
   <body>
     <%= render partial: "layouts/site_shared/navigation" %>
     <%= render partial: "layouts/profile_shared/dashboard" %>
+
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'site' %>
+    <%= javascript_include_tag 'profile' %>
+    
+    <%= yield :javascripts %>
+    
   </body>
 </html>
