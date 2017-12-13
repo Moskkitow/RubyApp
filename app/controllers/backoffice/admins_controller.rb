@@ -54,7 +54,7 @@ class Backoffice::AdminsController < BackofficeController
   
     def params_admin
       if password_blank?
-        params[:admin], expect!(:password, :password_confirmation)
+        params(:admin).expect!(:password, :password_confirmation)
       end
       
       if @admin.blank?

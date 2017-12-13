@@ -16,7 +16,7 @@
  */
 
  /** Bootstrap Notify  **/
-[data-notify="progressbar"] {
+ [data-notify="progressbar"] {
     margin-bottom: 0px;
     position: absolute;
     bottom: 0px;

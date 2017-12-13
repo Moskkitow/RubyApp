@@ -6,7 +6,7 @@ class Ad < ActiveRecord::Base
   validates :price, numericality: { greater_than: 0 }
 
   belongs_to :member, optional: true
-  belongs_to :category, optional: true
+  belongs_to :category, counter_cache: true, optional: true
 
   scope :descending_order, -> (quantity) { limit(quantity).order(created_at: :desc) }
   scope :to_the, -> (member) { where(member: member) }

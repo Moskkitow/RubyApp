@@ -5,6 +5,9 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li>
+                        <%= link_to t('app.name'), site_home_path, class: "sidebar-brand" %>
+                    </li>
+                    <li>
                         <%= link_to  "Dashboard", site_profile_dashboard_index_path %>
                     </li>
                     <li>
@@ -19,7 +22,7 @@
                 <div class="container-fluid">
                     <%= yield %>
                 </div>
-            </div>
+            </div>            
         </div>
     </body>
 </html>
