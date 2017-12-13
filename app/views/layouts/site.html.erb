@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  
   <head>
     
     <meta charset="utf-8">
@@ -15,9 +16,11 @@
     <%= stylesheet_link_tag 'site/site.min.css', media: 'all' %>
 
   </head>
+
   <body>
     
     <div id="global-spin" class="loading" style="display: none;">Loading&#8230;</div>
+
     <%= render partial: "layouts/site_shared/navigation" %>
     <%= yield %>
     <%= render partial: "layouts/site_shared/footer" %>
@@ -26,4 +29,5 @@
     <%= javascript_include_tag 'site' %>
     
   </body>
+
 </html>

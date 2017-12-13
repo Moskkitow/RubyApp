@@ -1,45 +1,50 @@
-/*!
+/*
  *= require bootstrap
  *= require font-awesome
- */
+ *= require bootstrap_sb_admin_base_v2
+*/
 
-body{
-    overflow-x:hidden;
-    font-family:'Roboto Slab','Helvetica Neue',Helvetica,Arial,sans-serif}
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+*/
 
-p{
-    line-height:1.75;
-    margin-bottom: -4px;
-}
-
-.text-primary{
-    color:#fed136!important
-}
-
-.btn{
-    font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-weight:700}.btn-xl{font-size:18px;padding:20px 40px}
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
   
+p {
+    line-height: 1.75; 
+}
+  
+a {
+    color: #fed136; 
+}
+    
+a:hover {
+    color: #fec503;
+}
+  
+
+h1,h2,h3,h4,h5,h6{
+    font-weight:700;
+    font-family:Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+}    
+
 #mainNav{
     background-color:#212529}
-    
-#mainNav .navbar-brand{
-    color: #fed136;
-    font-family: 'Brush Script MT';
-    font-weight: bold;    
+
+#mainNav .navbar-toggler{
+    font-size:12px;
+    right:0;
+    padding:13px;
+    text-transform:uppercase;
+    color:#000;
+    border:0;
+    background-color:#fed136;
+    font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-
-#mainNav .navbar-nav .nav-item .nav-link{
-    font-size:90%;
-    font-weight:400;
-    padding:.75em 0;
-    letter-spacing:1px;
-    color:darkgray;
-    font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif}
-    
-#mainNav .navbar-nav .nav-item .nav-link.active,#mainNav .navbar-nav .nav-item .nav-link:hover{
-    color:#fed136}
-
 
 footer{
     padding:25px 0;
