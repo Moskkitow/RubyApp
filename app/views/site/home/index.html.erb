@@ -2,15 +2,14 @@
 <header class="masthead">
     <div class="container">
         <div class="intro-text">
-            <div class="intro-lead-in">Welcome To Our Studio!</div>
+            <div class="intro-lead-in">Welcome To Our Store!</div>
             <div class="intro-heading text-uppercase">It's Nice To Meet You</div>
-            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         </div>
     </div>
 </header>
 <div class="container">
   <div class="row">
-    <div class="col-lg-3">
+    <div id="home-sidebar" class="col-lg-3">
      <h1 class="my-4">Categorias</h1>
       <div class="list-group">
         <% @categories.each do |category| %>
@@ -18,7 +17,7 @@
         <% end %>  
       </div>
     </div>
-    <div class="col-lg-9">
+    <div id="home-main" class="col-lg-9">
       <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -52,10 +51,10 @@
               <%= image_tag ad.picture.url(:medium) %>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#"><%= truncate(ad.title, length: 10) %></a>
+                  <%= link_to  truncate(ad.title, length: 10), site_ad_detail_path(ad), :remote=>true %>
                 </h4>
                 <h5><%= humanized_money_with_symbol ad.price %></h5>
-                <p class="card-text"><%= truncate(ad.description, lenght: 50) %></p>
+                <p class="card-text"><%= truncate(ad.description_short, lenght: 50) %></p>
               </div>
               <div class="card-footer">
                 <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>

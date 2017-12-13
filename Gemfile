@@ -35,6 +35,8 @@ gem 'rails-i18n', github: 'svenfuchs/rails-i18n', branch: 'master'
 gem 'bootstrap_sb_admin_base_v2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
+# Rails ActionViewr
+gem 'actionview'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -43,12 +45,14 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# Redcarpet, markdown
+gem 'redcarpet'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 source 'https://rails-assets.org' do
   # Bootsrap
-  gem 'rails-assets-bootstrap', '4.0.0.beta'
+  gem 'rails-assets-bootstrap'
   gem 'popper_js', '~> 1.11'
   # Bootsrap Notify
   gem 'rails-assets-bootstrap.growl'
@@ -56,6 +60,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootbox'
   # A cross-browser library of CSS animations. As easy to use as an easy thing
   gem 'rails-assets-animate-css'
+  # Bootstrap plugin for markdown editing
+  gem 'rails-assets-bootstrap-markdown'
+  # A markdown parser built for speed
+  gem 'rails-assets-marked'
 end
 
 # Use CoffeeScript for .coffee assets and views
@@ -90,6 +98,8 @@ end
 group :development do
   # Gem FAKER
   gem 'faker'
+  # Markdown Lorem Ipsum
+  gem 'doctor_ipsum'
   # Gem LeroLero
   gem 'lerolero_generator'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
