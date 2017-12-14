@@ -4,6 +4,10 @@ class Category < ApplicationRecord
 
     validates_presence_of :description
 
-    scope :order_by_description, ->{ order(:description) }    
+    scope :order_by_description, ->{ order(:description) }
+    
+    def to_param
+        "#{id} #{description}".parameterize
+    end
 
 end

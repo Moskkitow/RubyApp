@@ -47,12 +47,15 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Redcarpet, markdown
 gem 'redcarpet'
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. 
+# It allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models.
+gem 'friendly_id', '~> 5.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 source 'https://rails-assets.org' do
   # Bootsrap
-  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-bootstrap', '~> 4.0.0.beta'
   gem 'popper_js', '~> 1.11'
   # Bootsrap Notify
   gem 'rails-assets-bootstrap.growl'
@@ -60,8 +63,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootbox'
   # A cross-browser library of CSS animations. As easy to use as an easy thing
   gem 'rails-assets-animate-css'
-  # Bootstrap plugin for markdown editing
-  gem 'rails-assets-bootstrap-markdown'
   # A markdown parser built for speed
   gem 'rails-assets-marked'
 end

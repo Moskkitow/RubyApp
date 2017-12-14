@@ -2,6 +2,7 @@
   "name": "RubyApp",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
     "popper.js": "^1.12.9",
     "tooltip.js": "^1.1.7"
   }

@@ -2,7 +2,6 @@
 //= require bootstrap
 //= require jquery-ui
 //= require jquery-ui/i18n/datepicker-pt-BR
-//= require bootstrap-markdown
 
 /**
  * Brazilian Portuguese translation for bootstrap-markdown
