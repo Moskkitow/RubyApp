@@ -10,7 +10,7 @@ class Ad < ActiveRecord::Base
 
   scope :descending_order, -> (quantity) { limit(quantity).order(created_at: :desc) }
   scope :to_the, -> (member) { where(member: member) }
-  scope :where_category, -> (id) { where(category: id) }
+  scope :by_category, -> (id) { where(category: id) }
 
   has_attached_file :picture, styles: { large: "900x400#", medium: "150x75#", thumb: "50x50#" }, default_url: "/images/:style/missing.png" 
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/

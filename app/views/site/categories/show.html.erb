@@ -1,18 +1,7 @@
-<body>
-    <div class="container">
-        <div class="row">
-            <%= render partial: "site/shared/sidebar" %>
-            <div id="home-main" class="col-lg-9">
-                <div class="row">
-                    <div class="Well">
-                        <h4>
-                            <%= @ads.first.category.description %>
-                        </h4>
-                    </div>
-                    <%= render partial: "site/shared/ads" %>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-        
+<div class="Well">
+    <h4>
+        <%= @category.description %>
+    </h4>
+</div>
+
+<%= render partial: "site/shared/ads" %>

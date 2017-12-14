@@ -4,7 +4,7 @@
     <%= image_tag ad.picture.url(:medium) %>
     <div class="card-body">
       <h4 class="card-title">
-        <%= link_to  truncate(ad.title, length: 10), site_ad_detail_path(ad), remote: true %>
+        <%= link_to  truncate(ad.title, length: 10), site_ad_detail_path(ad), remote: true, data: { push: :partial } %>
       </h4>
       <h5><%= humanized_money_with_symbol ad.price %></h5>
       <p class="card-text"><%= truncate(ad.description_short, lenght: 50) %></p>
