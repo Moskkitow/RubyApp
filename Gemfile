@@ -11,7 +11,7 @@ gem 'jquery-ui-rails'
 gem 'ruby-debug-ide', '~> 0.6.0'
 gem 'debase', '~> 0.2.2.beta10'
 # Devise - Autenticação
-gem 'devise'
+gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'master'
 # Devise i18n
 gem 'devise-i18n'
 # Enum_help
@@ -50,8 +50,10 @@ gem 'redcarpet'
 # FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. 
 # It allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models.
 gem 'friendly_id', '~> 5.1.0'
-# Wiselinks
-gem 'wiselinks'
+# Kaminare
+gem 'kaminari'
+# Kaminari i18n
+gem 'kaminari-i18n'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
