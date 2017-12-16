@@ -54,6 +54,8 @@ gem 'friendly_id', '~> 5.1.0'
 gem 'kaminari'
 # Kaminari i18n
 gem 'kaminari-i18n'
+# RatyRate
+gem 'ratyrate'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -1,43 +1,49 @@
 class Ad < ActiveRecord::Base
 
-  before_save :md_to_html
+    QTT_PER_PAGE = 6
 
-  validates :description, :description_md, :description_short, :category, :picture, :finish_date, presence: true
-  validates :price, numericality: { greater_than: 0 }
+    ratyrate_rateable 'quality'
 
-  belongs_to :member, optional: true
-  belongs_to :category, counter_cache: true, optional: true
+    before_save :md_to_html
 
-  scope :descending_order, -> (quantity = 10, page = 1) { limit(quantity).order(created_at: :desc).page(page).pre(6) }
-  scope :to_the, -> (member) { where(member: member) }
-  scope :by_category, -> (id) { where(category: id) }
-  scope :search, -> (q, page = 1) { where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).pre(6) }
+    validates :description, :description_md, :description_short, :category, :picture, :finish_date, presence: true
+    validates :price, numericality: { greater_than: 0 }
 
-  has_attached_file :picture, styles: { large: "900x400#", medium: "150x75#", thumb: "50x50#" }, default_url: "/images/:style/missing.png" 
-  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+    belongs_to :member, optional: true
+    belongs_to :category, counter_cache: true, optional: true
 
-  monetize :price_cents
+    has_many :comments
 
-  private
+    scope :descending_order, -> (page) { order(created_at: :desc).page(page).per(QTT_PER_PAGE) }
+    scope :to_the, -> (member) { where(member: member) }
+    scope :by_category, -> (id) { where(category: id) }
+    scope :search, -> (q) { where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).per(QTT_PER_PAGE) }
 
-    def md_to_html
-      options = {
-          filter_html: true,
-          link_attributes: {
-              rel: "nofollow",
-              target: "_blank"
-          }
-      }
+    has_attached_file :picture, styles: { large: "900x350#", medium: "350#200", thumb: "100x100#" }, default_url: "/images/:style/missing.png" 
+    validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+
+    monetize :price_cents
+
+    private
+
+        def md_to_html
+        options = {
+            filter_html: true,
+            link_attributes: {
+                rel: "nofollow",
+                target: "_blank"
+            }
+        }
     
-      extensions = {
-          space_after_headers: true,
-          autolink: true
-      }
+        extensions = {
+            space_after_headers: true,
+            autolink: true
+        }
     
-      renderer = Redcarpet::Render::HTML.new(options)
-      markdown = Redcarpet::Markdown.new(renderer, extensions)
+        renderer = Redcarpet::Render::HTML.new(options)
+        markdown = Redcarpet::Markdown.new(renderer, extensions)
   
-      self.description = markdown.render(self.description_md)
+        self.description = markdown.render(self.description_md)
     end
 
 end

@@ -23,14 +23,14 @@
 
     <%= render partial: "layouts/site_shared/navigation" %>
     <div class="container">
-      <%= form_tag site_search_tag, methood: :get do %>
+      <%= form_tag site_search_path, methood: :get do %>
         <div class="row">
           <div class="well well-sm">
             <div class="row">
               <div class="col-lg-3"></div>
               <div class="col-lg-6">
                 <div class="input-group">
-                  <%= text_field_tag (:q, params[:q], { class: "form-controll", placeholder: "Pesquise por..." }) %>
+                  <%= text_field_tag (:q), params[:q], { class: "form-controll", placeholder: "Pesquise por..." } %>
                   <span class="input-group-btn">
                     <%= submit_tag("Pesquisar", class: "btn btn-default") %>
                   </span>
@@ -40,7 +40,7 @@
             </div>
           </div>
         </div>
-      <% end %> %> 
+      <% end %>
       <div class="row">
         <%= render partial: "layouts/site_shared/sidebar" %>
         <div id="home-main" class="col-lg-9">

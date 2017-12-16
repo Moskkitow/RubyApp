@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+
+  before_filter :store_current_location, :unless => :devise_controller?
   
   include Pundit
 
@@ -24,4 +26,11 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "Você nãp possui autorização de uso. Por favor contate o ADM do sistema."
     redirect_to(request.referrer || root_path)
   end
+
+  private
+
+    def store_current_location
+      store_location_for(:member, request.url)
+    end
+    
 end

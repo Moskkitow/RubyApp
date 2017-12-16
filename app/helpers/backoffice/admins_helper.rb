@@ -1,5 +1,4 @@
 module Backoffice::AdminsHelper
-
     OptionsForRoles = Struct.new(:id, :description)
 
     def options_for_roles

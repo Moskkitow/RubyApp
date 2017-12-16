@@ -23,6 +23,13 @@
                         <i class="fa fa-envelope fa-fw"></i> E-mails
                     <% end %>
                 </li>
+                <% if Rails.env.development? %>
+                    <li>    
+                        <%= link_to backoffice_diagrams_path do %>
+                            <i class="fa fa-catabases fa-fw"></i> E-mails
+                        <% end %>
+                    </li>
+                <% end %>
             </ul>
             </ul>
         </div>
