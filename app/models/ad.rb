@@ -16,7 +16,7 @@ class Ad < ActiveRecord::Base
 
     scope :descending_order, -> (page) { order(created_at: :desc).page(page).per(QTT_PER_PAGE) }
     scope :to_the, -> (member) { where(member: member) }
-    scope :by_category, -> (id) { where(category: id) }
+    scope :by_category, -> (id, page) { where(category: id).page(page).per(QTT_PER_PAGE) }
     scope :search, -> (q) { where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).per(QTT_PER_PAGE) }
 
     has_attached_file :picture, styles: { large: "900x350#", medium: "350#200", thumb: "100x100#" }, default_url: "/images/:style/missing.png" 
