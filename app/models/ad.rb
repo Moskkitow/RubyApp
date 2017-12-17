@@ -1,49 +1,78 @@
 class Ad < ActiveRecord::Base
 
-    QTT_PER_PAGE = 6
+    # Constants
+  QTT_PER_PAGE = 6
 
-    ratyrate_rateable 'quality'
+  # RatyRate gem
+  ratyrate_rateable 'quality'
 
-    before_save :md_to_html
+  # Callbacks
+  before_save :md_to_html
 
-    validates :description, :description_md, :description_short, :category, :picture, :finish_date, presence: true
-    validates :price, numericality: { greater_than: 0 }
+  # Associations
+  belongs_to :member
+  belongs_to :category, counter_cache: true
+  has_many :comments
 
-    belongs_to :member, optional: true
-    belongs_to :category, counter_cache: true, optional: true
+  # Validates
+  validates :title, :description_md, :description_short, :category, presence: true
+  validates :picture, :finish_date, presence:true
+  validates :price, numericality: { greater_than: 0 }
 
-    has_many :comments
+  # Scopes
+  scope :descending_order, ->(page) {
+    order(created_at: :desc).page(page).per(QTT_PER_PAGE)
+  }
 
-    scope :descending_order, -> (page) { order(created_at: :desc).page(page).per(QTT_PER_PAGE) }
-    scope :to_the, -> (member) { where(member: member) }
-    scope :by_category, -> (id, page) { where(category: id).page(page).per(QTT_PER_PAGE) }
-    scope :search, -> (q) { where("lower(title) LIKE ?", "%#{q.downcase}%").page(page).per(QTT_PER_PAGE) }
+  scope :search, ->(term) {
+    where("lower(title) LIKE ?", "%#{term.downcase}%").page(page).per(QTT_PER_PAGE)
+  }
 
-    has_attached_file :picture, styles: { large: "900x350#", medium: "350#200", thumb: "100x100#" }, default_url: "/images/:style/missing.png" 
-    validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+  scope :to_the, ->(member) { where(member: member) }
+  scope :by_category, ->(id, page) { where(category: id).page(page).per(QTT_PER_PAGE) }
 
-    monetize :price_cents
+  scope :random, ->(quantity) {
+    if Rails.env.production?
+      limit(quantity).order("RAND()") # MySQL
+    else
+      limit(quantity).order("RANDOM()") # SQLite
+    end
+  }
 
-    private
+  # Paperclip
+  has_attached_file :picture, styles: { large: "800x300#", medium: "320x150#", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
 
-        def md_to_html
-        options = {
-            filter_html: true,
-            link_attributes: {
-                rel: "nofollow",
-                target: "_blank"
-            }
+  # gem money-rails
+  monetize :price_cents
+
+  def second
+    self[1]
+  end
+
+  def third
+    self[2]
+  end
+
+  private
+    def md_to_html
+      options = {
+        filter_html: true,
+        link_attributes: {
+          rel: "nofollow",
+          target: "_blank"
         }
-    
-        extensions = {
-            space_after_headers: true,
-            autolink: true
-        }
-    
-        renderer = Redcarpet::Render::HTML.new(options)
-        markdown = Redcarpet::Markdown.new(renderer, extensions)
-  
-        self.description = markdown.render(self.description_md)
+      }
+
+      extensions = {
+        space_after_headers: true,
+        autolink: true
+      }
+
+      renderer = Redcarpet::Render::HTML.new(options)
+      markdown = Redcarpet::Markdown.new(renderer, extensions)
+
+      self.description = markdown.render(self.description_md)
     end
 
 end
